@@ -18,7 +18,7 @@ model User {
   stripeCustomerId String? @unique
   colorScheme      String  @default("theme-violet")
   Subscription     Subscription?
-  // Notes            Note[]
+  Notes            Note[]
 }
 
 // Uncomment the following models if you intend to use them
@@ -35,12 +35,12 @@ model Subscription {
   userId               String   @unique
 }
 
-// model Note {
-//   id          String  @id @default(uuid())
-//   title       String
-//   description String
-//   createdAt   DateTime @default(now())
-//   updatedAt   DateTime @updatedAt
-//   User        User?   @relation(fields: [userId], references: [id])
-//   userId      String?
-// }
+model Note {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  User        User?   @relation(fields: [userId], references: [id])
+  userId      String?
+}
